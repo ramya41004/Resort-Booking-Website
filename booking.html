@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | Azure Sands</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        /* Intha file-ku mattum thevaiyana extra styles */
+        .hidden { display: none; }
+        
+        #confirmation-message {
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            font-size: 50px;
+            color: #004d40;
+            background: #e0f2f1;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AZURE SANDS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="booking.html" style="color: #ffb300;">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <div class="full-booking-wrapper">
+        <!-- 1. Booking Form Section -->
+        <div class="booking-card" id="booking-section">
+            <h2 style="color: #004d40; text-align: center;">Reserve Your Room</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">Fill in the details below and we'll get back to you.</p>
+            
+            <form id="detailed-booking">
+                <div class="form-row">
+                    <div class="input-field">
+                        <label>Full Name</label>
+                        <input type="text" id="cust-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Email</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-field">
+                        <label>Room Type</label>
+                        <select id="room-choice">
+                            <option>Deluxe Ocean View</option>
+                            <option>Garden Suite</option>
+                            <option>Honeymoon Villa</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-field">
+                        <label>Check-in</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Check-out</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <label>Special Requests</label>
+                    <textarea rows="4" placeholder="Anything else we should know?"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">Confirm Reservation</button>
+            </form>
+        </div>
+
+        <!-- 2. Confirmation Section (Hidden by default) -->
+        <div class="booking-card hidden" id="confirmation-section">
+            <div id="confirmation-message">
+                <div class="success-icon">✓</div>
+                <h2 style="color: #004d40;">Booking Request Sent!</h2>
+                <p style="margin: 15px 0; color: #555;">Thank you, <span id="display-name" style="font-weight: bold; color: #ff6f61;"></span>!</p>
+                <p>We have received your request for a <strong id="display-room"></strong>. Our team will contact you shortly via email.</p>
+                <p style="font-size: 13px; color: #888; margin-top: 20px;">Booking Reference: <span id="booking-id"></span></p>
+                <br>
+                <a href="index.html" class="btn">Return Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('detailed-booking').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Values edukirom
+            const name = document.getElementById('cust-name').value;
+            const room = document.getElementById('room-choice').value;
+            const bookingId = "ASR-" + Math.floor(Math.random() * 90000 + 10000); // Random ID
+
+            // UI-la data-va set panrom
+            document.getElementById('display-name').innerText = name;
+            document.getElementById('display-room').innerText = room;
+            document.getElementById('booking-id').innerText = bookingId;
+
+            // Form-ah hide panni, Confirmation-ah kaaturom
+            document.getElementById('booking-section').classList.add('hidden');
+            document.getElementById('confirmation-section').classList.remove('hidden');
+
+            // Optional: Page-oda top-ku scroll panna
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
