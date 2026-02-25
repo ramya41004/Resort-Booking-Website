@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Sands Resort | Elegant Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">ELEGANT RESORT</div>
+        <ul>
+            <li><a href="about.html">Home</a></li>
+            <li><a href="gallery.html">Rooms</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Escape to Luxury</h1>
+            <p>Experience the ultimate seaside tranquility</p>
+            <a href="#booking" class="btn">Explore More</a>
+        </div>
+    </header>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <form id="booking-form">
+            <div class="input-group">
+                <label>Check-in</label>
+                <input type="date" required>
+            </div>
+            <div class="input-group">
+                <label>Check-out</label>
+                <input type="date" required>
+            </div>
+            <div class="input-group">
+                <label>Guests</label>
+                <select>
+                    <option>1 Guest</option>
+                    <option>2 Guests</option>
+                    <option>Family</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-book">Check Availability</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
