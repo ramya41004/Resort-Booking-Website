@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        /* Intha file-ku mattum thevaiyana extra styles */
+    
         .hidden { display: none; }
         
         #confirmation-message {
@@ -115,21 +115,21 @@
         document.getElementById('detailed-booking').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Values edukirom
+            
             const name = document.getElementById('cust-name').value;
             const room = document.getElementById('room-choice').value;
             const bookingId = "ASR-" + Math.floor(Math.random() * 90000 + 10000); // Random ID
 
-            // UI-la data-va set panrom
+        
             document.getElementById('display-name').innerText = name;
             document.getElementById('display-room').innerText = room;
             document.getElementById('booking-id').innerText = bookingId;
 
-            // Form-ah hide panni, Confirmation-ah kaaturom
+            
             document.getElementById('booking-section').classList.add('hidden');
             document.getElementById('confirmation-section').classList.remove('hidden');
 
-            // Optional: Page-oda top-ku scroll panna
+            
             window.scrollTo(0, 0);
         });
     </script>
